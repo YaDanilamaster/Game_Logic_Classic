@@ -31,22 +31,41 @@ add_executable(
 	${sources}
 )
 
-target_link_libraries(LogicClassic
-	box2d
-	sfml-graphics-d.lib
-	sfml-main-d.lib
-	sfml-system-d.lib
-	sfml-window-d.lib
+set (debugLib 
+	debug box2d
+	debug sfml-graphics-d.lib
+	debug sfml-main-d.lib
+	debug sfml-system-d.lib
+	debug sfml-window-d.lib
 )
 
+set (releaseLib 
+	optimized box2d
+	optimized sfml-graphics.lib
+	optimized sfml-main.lib
+	optimized sfml-system.lib
+	optimized sfml-window.lib
+)
+
+target_link_libraries(LogicClassic ${debugLib})
+target_link_libraries(LogicClassic ${releaseLib})
+
+set (copyDebugDll
+	${CMAKE_CURRENT_SOURCE_DIR}/lib/sfml-graphics-d-3.dll
+	${CMAKE_CURRENT_SOURCE_DIR}/lib/sfml-system-d-3.dll
+	${CMAKE_CURRENT_SOURCE_DIR}/lib/sfml-window-d-3.dll
+)
+
+set (copyReleaseDll
+	${CMAKE_CURRENT_SOURCE_DIR}/lib/sfml-graphics-3.dll
+	${CMAKE_CURRENT_SOURCE_DIR}/lib/sfml-system-3.dll
+	${CMAKE_CURRENT_SOURCE_DIR}/lib/sfml-window-3.dll
+)
 file(COPY ${CMAKE_CURRENT_SOURCE_DIR}/img
 	DESTINATION ${CMAKE_BINARY_DIR})
 
-file(COPY ${CMAKE_CURRENT_SOURCE_DIR}/lib/sfml-graphics-d-3.dll
+file(COPY ${copyDebugDll}
 	DESTINATION ${CMAKE_BINARY_DIR})
 
-file(COPY ${CMAKE_CURRENT_SOURCE_DIR}/lib/sfml-system-d-3.dll
-	DESTINATION ${CMAKE_BINARY_DIR})
-
-file(COPY ${CMAKE_CURRENT_SOURCE_DIR}/lib/sfml-window-d-3.dll
+file(COPY ${copyReleaseDll}
 	DESTINATION ${CMAKE_BINARY_DIR})

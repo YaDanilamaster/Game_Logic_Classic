@@ -45,7 +45,7 @@ namespace gamecore {
 
 	void MenuScene::Initialization()
 	{
-		sf::Vector2f size = { (float)window_->getSize().x, (float)window_->getSize().y };
+		sf::Vector2f size = window_->getDefaultView().getSize();
 
 		ruleView_.reset(sf::FloatRect(centerRule_, size));
 		settingsView_.reset(sf::FloatRect(centerSettings_, size));
@@ -88,8 +88,6 @@ namespace gamecore {
 			msg->SetPosition({ center.x - msgRect.width / 2u, center.y });
 		}
 		// Добавляем описание правил
-		sf::Vector2u windowSize = window_->getSize();
-
 		{
 			auto* rule = CreateGUInterface<GUiLabel>
 				(1, false, Events::MouseDown, GetFont((int)Font::Message), (int)MenuItem::GoMenu);
@@ -112,8 +110,7 @@ namespace gamecore {
 			settingText->SetFillColor(ColorStyle.highlighting);
 
 			sf::FloatRect msgRect = settingText->GetText().getGlobalBounds();
-			settingText->SetPosition(sf::Vector2f(
-				window_->mapCoordsToPixel(sf::Vector2f({ center.x - msgRect.width / 2, center.y - 350 }))));
+			settingText->SetPosition(sf::Vector2f({ center.x - msgRect.width / 2, center.y - 350 }));
 		}
 		{
 			auto* msg = CreateGUInterface<GUiLabel>
@@ -123,8 +120,7 @@ namespace gamecore {
 			msg->SetCharacterSize(60);
 			msg->SetFillColor(ColorStyle.base);
 			sf::FloatRect msgRect = msg->GetText().getGlobalBounds();
-			msg->SetPosition(sf::Vector2f(
-				window_->mapCoordsToPixel(sf::Vector2f({ center.x - 400, center.y - 200 }))));
+			msg->SetPosition(sf::Vector2f({ center.x - 400, center.y - 200 }));
 		}
 		{
 			auto* msg = CreateGUInterface<GUiLabel>
@@ -134,8 +130,7 @@ namespace gamecore {
 			msg->SetCharacterSize(60);
 			msg->SetFillColor(ColorStyle.base);
 			sf::FloatRect msgRect = msg->GetText().getGlobalBounds();
-			msg->SetPosition(sf::Vector2f(
-				window_->mapCoordsToPixel(sf::Vector2f({ center.x - 400, center.y - 100}))));
+			msg->SetPosition(sf::Vector2f({ center.x - 400, center.y - 100}));
 		}
 		{
 			auto* msg = CreateGUInterface<GUiLabel>
@@ -145,8 +140,7 @@ namespace gamecore {
 			msg->SetCharacterSize(60);
 			msg->SetFillColor(ColorStyle.base);
 			sf::FloatRect msgRect = msg->GetText().getGlobalBounds();
-			msg->SetPosition(sf::Vector2f(
-				window_->mapCoordsToPixel(sf::Vector2f({ center.x - 400, center.y }))));
+			msg->SetPosition(sf::Vector2f({ center.x - 400, center.y }));
 		}
 
 		// Описание уровней сложности
@@ -158,8 +152,7 @@ namespace gamecore {
 			settingText->SetFillColor(ColorStyle.base);
 
 			sf::FloatRect msgRect = settingText->GetText().getGlobalBounds();
-			settingText->SetPosition(sf::Vector2f(
-				window_->mapCoordsToPixel(sf::Vector2f({ center.x - 50, center.y - 200 }))));
+			settingText->SetPosition(sf::Vector2f({ center.x - 50, center.y - 200 }));
 		}
 		{
 			auto* settingText = Scene::CreateGUInterface<GUiText>(1, false, GetFont((int)Font::Message), -1);
@@ -169,8 +162,7 @@ namespace gamecore {
 			settingText->SetFillColor(ColorStyle.base);
 
 			sf::FloatRect msgRect = settingText->GetText().getGlobalBounds();
-			settingText->SetPosition(sf::Vector2f(
-				window_->mapCoordsToPixel(sf::Vector2f({ center.x - 50, center.y - 100 }))));
+			settingText->SetPosition(sf::Vector2f({ center.x - 50, center.y - 100 }));
 		}
 		{
 			auto* settingText = Scene::CreateGUInterface<GUiText>(1, false, GetFont((int)Font::Message), -1);
@@ -180,8 +172,7 @@ namespace gamecore {
 			settingText->SetFillColor(ColorStyle.base);
 
 			sf::FloatRect msgRect = settingText->GetText().getGlobalBounds();
-			settingText->SetPosition(sf::Vector2f(
-				window_->mapCoordsToPixel(sf::Vector2f({ center.x - 50, center.y }))));
+			settingText->SetPosition(sf::Vector2f({ center.x - 50, center.y }));
 		}
 	}
 

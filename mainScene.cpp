@@ -72,7 +72,6 @@ namespace gamecore {
 			CreateWall(0.4f, 14, { 21, 14 }, 0);
 			auto border = Scene::CreateGUInterface<GUiSprite>(1, false, GetTexture((int)Texture::Border));
 			border->SetPosition({ centerBorderX, 0});
-			border->SetScale({window_->getSize().y * 1.f / border->GetRect().width, 1});
 			border->SetRotation(sf::radians(1.57f));
 		}
 		{

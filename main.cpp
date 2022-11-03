@@ -12,7 +12,8 @@ using namespace std::string_literals;
 int main()
 {
 	// настраиваем окно для рендеринга
-	std::unique_ptr<sf::RenderWindow> window = std::make_unique<sf::RenderWindow>(sf::VideoMode({ 1280, 900 }), "Logic Classic"s, sf::Style::Default);
+	sf::VideoMode defailtVideoMode = sf::VideoMode({ 1280, 900 });
+	std::unique_ptr<sf::RenderWindow> window = std::make_unique<sf::RenderWindow>(defailtVideoMode, "Logic Classic"s, sf::Style::Default);
 	window->setFramerateLimit(60);
 	window->setVerticalSyncEnabled(true);
 
