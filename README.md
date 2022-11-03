@@ -16,12 +16,12 @@
       
  Игрок выставляет цветные фишки в замке с кодом. На каждом ходе компьютер дает подсказку в следующем формате:
  
- <img src="https://github.com/YaDanilamaster/LogicClassic/blob/master/img/info_full.png" alt="Полностью закрашенный кружок" width="30">  - полное совпадение цвета и позиции.
+ <img src="https://github.com/YaDanilamaster/Game_Logic_Classic/blob/main/img/info_full.png" alt="Полностью закрашенный кружок" width="30">  - полное совпадение цвета и позиции.
  
- <img src="https://github.com/YaDanilamaster/LogicClassic/blob/master/img/info_half.png" alt="Половина кружка закрашена" width="30">  - совпадение по цвету но он на неправильной позиции.
+ <img src="https://github.com/YaDanilamaster/Game_Logic_Classic/blob/main/img/info_half.png" alt="Половина кружка закрашена" width="30">  - совпадение по цвету но он на неправильной позиции.
  
  
- <img src="https://github.com/YaDanilamaster/LogicClassic/blob/master/img/info_empty.png" alt="Пустой кружок" width="30"> - цвет отсутствует.
+ <img src="https://github.com/YaDanilamaster/Game_Logic_Classic/blob/main/img/info_empty.png" alt="Пустой кружок" width="30"> - цвет отсутствует.
 
       Важно! Положение подсказок не соответствует положению цветов в коде.
  
