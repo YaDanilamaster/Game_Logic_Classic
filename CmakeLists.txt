@@ -1,0 +1,52 @@
+cmake_minimum_required(VERSION 3.24 FATAL_ERROR)
+project(TestFind)
+
+set(CMAKE_CXX_STANDARD 17)
+if(MSVC)
+  set(
+    CMAKE_CXX_FLAGS_DEBUG
+    "${CMAKE_CXX_FLAGS_DEBUG} /JMC"
+  )
+else()
+  set(
+    CMAKE_CXX_FLAGS
+    "${CMAKE_CXX_FLAGS}"
+  )
+endif()
+
+include_directories(
+	${CMAKE_CURRENT_SOURCE_DIR}/box2d/include
+	${CMAKE_CURRENT_SOURCE_DIR}/SFML/include
+)
+
+link_directories(
+	${CMAKE_CURRENT_SOURCE_DIR}/box2d/bin
+	${CMAKE_CURRENT_SOURCE_DIR}/SFML/bin
+)
+
+file(GLOB sources *.cpp *.h)
+
+add_executable(
+	LogicClassic
+	${sources}
+)
+
+target_link_libraries(LogicClassic
+	box2d
+	sfml-graphics-d.lib
+	sfml-main-d.lib
+	sfml-system-d.lib
+	sfml-window-d.lib
+)
+
+file(COPY ${CMAKE_CURRENT_SOURCE_DIR}/img
+	DESTINATION ${CMAKE_BINARY_DIR})
+
+file(COPY ${CMAKE_CURRENT_SOURCE_DIR}/lib/sfml-graphics-d-3.dll
+	DESTINATION ${CMAKE_BINARY_DIR})
+
+file(COPY ${CMAKE_CURRENT_SOURCE_DIR}/lib/sfml-system-d-3.dll
+	DESTINATION ${CMAKE_BINARY_DIR})
+
+file(COPY ${CMAKE_CURRENT_SOURCE_DIR}/lib/sfml-window-d-3.dll
+	DESTINATION ${CMAKE_BINARY_DIR})
